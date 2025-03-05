@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDoctor } from "../context/DoctorContext"; // Importa el contexto
+import { useDoctor } from "../context/DoctorContext";
 import "../assets/doctorSelectionStyle.css";
 
 const DoctorSelection = () => {
     const [doctors, setDoctors] = useState([]);
     const navigate = useNavigate();
-    const { setDoctorId } = useDoctor(); // Usa el contexto
+    const { setDoctorId } = useDoctor();
 
     useEffect(() => {
         fetch("http://localhost:5000/doctors/info")
@@ -16,13 +16,14 @@ const DoctorSelection = () => {
     }, []);
 
     const handleDoctorClick = (id) => {
+        console.log("Seleccionado doctorId:", id);
         setDoctorId(id);
-        navigate("/doctor/menu");
+        navigate("/schedule-appointment");
     };
 
     return (
         <div className="container">
-            <h1 className="title">¿Qué Doctor eres?</h1>
+            <h1 className="title">Selecciona tu Doctor</h1>
             <div className="button-container">
                 {doctors.map(doctor => (
                     <button 

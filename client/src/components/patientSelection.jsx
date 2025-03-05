@@ -6,7 +6,7 @@ import "../assets/patientSelectionStyle.css";
 const PatientSelection = () => {
     const [patients, setPatients] = useState([]);
     const navigate = useNavigate();
-    const { setPatientId } = usePatient(); 
+    const { setPatientId } = usePatient(); // Guarda el ID en el contexto
 
     useEffect(() => {
         fetch("http://localhost:5000/patients/info")
@@ -16,13 +16,14 @@ const PatientSelection = () => {
     }, []);
 
     const handlePatientClick = (id) => {
-        setPatientId(id); 
+        console.log("Seleccionado patientId:", id); // ✅ Verifica en consola
+        setPatientId(id);
         navigate("/patient/menu");
     };
 
     return (
         <div className="container">
-            <h1 className="title">¿Qué paciente eres?</h1>
+            <h1 className="title">Selecciona tu perfil</h1>
             <div className="button-container">
                 {patients.map(patient => (
                     <button 

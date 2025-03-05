@@ -8,7 +8,7 @@ import { DoctorProvider } from "./context/DoctorContext";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <PatientProvider> 
+      <PatientProvider>
         <DoctorProvider>
           <App />
         </DoctorProvider>

@@ -5,7 +5,7 @@ doctors_bp = Blueprint("doctors", __name__)
 
 @doctors_bp.route("/info", methods = ["GET"])
 def getData():
-    response = supabase.table("Doctores").select("nombre, contacto, especialidad").execute()
+    response = supabase.table("Doctores").select("id, nombre, contacto, especialidad").execute()
     return jsonify(response.data), 200
 
 @doctors_bp.route("/names", methods = ["GET"])
