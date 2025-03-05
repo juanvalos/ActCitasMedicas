@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { usePatient } from "../context/PatientContext";
 import "../assets/patientSelectionStyle.css";
 
 const PatientSelection = () => {
     const [patients, setPatients] = useState([]);
     const navigate = useNavigate();
+    const { setPatientId } = usePatient(); 
 
     useEffect(() => {
         fetch("http://localhost:5000/patients/info")
@@ -13,9 +15,9 @@ const PatientSelection = () => {
             .catch(error => console.error("Error al obtener pacientes:", error));
     }, []);
 
-    
     const handlePatientClick = (id) => {
-        navigate(`/patient/${id}`);
+        setPatientId(id); 
+        navigate("/patient/menu");
     };
 
     return (
@@ -31,6 +33,7 @@ const PatientSelection = () => {
                         {patient.nombre}
                     </button>
                 ))}
+                <button className="btn back-btn" onClick={() => navigate(-1)}>Volver</button>
             </div>
         </div>
     );

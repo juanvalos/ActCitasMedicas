@@ -44,5 +44,15 @@ body {
 }
 
 .patient-btn:hover {
-    background-color: #2980b9;
+    background-color: #2ecc71;
+}
+
+.back-btn {
+    background-color: #e74c3c;
+    color: white;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+    background-color: #c0392b;
 }

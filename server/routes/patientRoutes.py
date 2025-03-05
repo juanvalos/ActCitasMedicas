@@ -15,13 +15,27 @@ def getNames():
 
 
 @patients_bp.route("/patId", methods=["GET"])
-def get_doctor_id():
+def get_patient_id():
     nombre = request.args.get("nombre")
 
     if not nombre:
         return jsonify({"error": "Falta el parámetro 'nombre'"}), 400
 
     response = supabase.table("Pacientes").select("id").eq("nombre", nombre).execute()
+
+    if response.data:
+        return jsonify(response.data[0]), 200
+    else:
+        return jsonify({"error": "Paciente no encontrado"}), 404
+
+@patients_bp.route("/nameById", methods=["GET"])
+def get_patient_name_by_id():
+    id = request.args.get("id")
+
+    if not id:
+        return jsonify({"error": "Falta el parámetro 'id'"}), 400
+
+    response = supabase.table("Pacientes").select("nombre").eq("id", id).execute()
 
     if response.data:
         return jsonify(response.data[0]), 200

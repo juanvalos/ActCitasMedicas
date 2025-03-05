@@ -27,6 +27,20 @@ def get_doctor_id():
         return jsonify(response.data[0]), 200
     else:
         return jsonify({"error": "Doctor no encontrado"}), 404
+    
+@doctors_bp.route("/nameById", methods=["GET"])
+def get_doctor_name_by_id():
+    id = request.args.get("id")
+
+    if not id:
+        return jsonify({"error": "Falta el parámetro 'id'"}), 400
+
+    response = supabase.table("Doctores").select("nombre").eq("id", id).execute()
+
+    if response.data:
+        return jsonify(response.data[0]), 200
+    else:
+        return jsonify({"error": "Doctor no encontrado"}), 404
 
 
 
