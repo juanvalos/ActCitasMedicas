@@ -11,9 +11,9 @@ const DoctorMenu = () => {
             <div className="button-container">
                 <button 
                     className="btn consult-btn" 
-                    onClick={() => navigate("/doctor/appointments")}
+                    onClick={() => navigate("/manage-appointments")}
                 >
-                    Consultar Citas Pendientes
+                    Gestionar Citas
                 </button>
                 <button 
                     className="btn schedule-btn" 

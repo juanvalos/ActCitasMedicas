@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { PatientProvider } from "./context/PatientContext"; // Contexto de pacientes
-import { DoctorProvider } from "./context/DoctorContext"; // Contexto de doctores
+import { PatientProvider } from "./context/PatientContext";
+import { DoctorProvider } from "./context/DoctorContext"; 
 
 import MedicalLogin from "./components/MedicalLogin";
 import PatientSelection from "./components/PatientSelection";
@@ -11,6 +11,7 @@ import DoctorMenu from "./components/DoctorMenu";
 import DoctorSelectionPat from "./components/DoctorSelectionPat";
 import PatAgendarCita from "./components/PatAgendarCita";
 import ConsultasPat from "./components/consultasPat";
+import GestionarCitas from "./components/GestionarCitas";
 
 function App() {
     return (
@@ -32,6 +33,8 @@ function App() {
                     <Route path="/schedule-appointment" element = {<PatAgendarCita />} />
 
                     <Route path="/patient/appointments" element = {<ConsultasPat />} />
+
+                    <Route path="manage-appointments" element = {<GestionarCitas />} />
 
                 </Routes>
             </DoctorProvider>

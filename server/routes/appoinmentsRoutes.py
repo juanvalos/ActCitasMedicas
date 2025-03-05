@@ -66,5 +66,30 @@ def get_appointments_pat():
     else:
         return jsonify({"message": "No hay citas pendientes para este paciente"}), 404
     
+@appointments_bp.route("/approve", methods=["PUT"])
+def approve_appointment():
+    id_cita = request.args.get("id")
 
+    if not id_cita:
+        return jsonify({"error": "Falta el parámetro 'id'"}), 400
+    
+    update_response = supabase.table("Citas").update({"estado": True}).eq("id", id_cita).execute()
 
+    if update_response.error:
+        return jsonify({"error": str(update_response.error)}), 500
+
+    return jsonify({"message": "Cita aprobada exitosamente"}), 200
+
+@appointments_bp.route("/delete", methods=["DELETE"])
+def delete_appointment():
+    id_cita = request.args.get("id")
+
+    if not id_cita:
+        return jsonify({"error": "Falta el parámetro 'id'"}), 400
+
+    delete_response = supabase.table("Citas").delete().eq("id", id_cita).execute()
+
+    if delete_response.error:
+        return jsonify({"error": str(delete_response.error)}), 500
+
+    return jsonify({"message": "Cita eliminada exitosamente"}), 200

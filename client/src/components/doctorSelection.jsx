@@ -18,12 +18,12 @@ const DoctorSelection = () => {
     const handleDoctorClick = (id) => {
         console.log("Seleccionado doctorId:", id);
         setDoctorId(id);
-        navigate("/schedule-appointment");
+        navigate("/doctor/menu");
     };
 
     return (
         <div className="container">
-            <h1 className="title">Selecciona tu Doctor</h1>
+            <h1 className="title">Selecciona tu usuario</h1>
             <div className="button-container">
                 {doctors.map(doctor => (
                     <button 
