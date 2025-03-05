@@ -41,6 +41,3 @@ def get_patient_name_by_id():
         return jsonify(response.data[0]), 200
     else:
         return jsonify({"error": "Paciente no encontrado"}), 404
-
-
-
