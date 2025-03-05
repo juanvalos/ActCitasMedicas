@@ -59,7 +59,7 @@ def get_appointments_pat():
     if not idPaciente:
         return jsonify({"error": "Falta el parámetro 'idPaciente'"}), 400
     
-    response = supabase.table("Citas").select("*").eq("idDoctor", idPaciente).eq("estado", True).execute()
+    response = supabase.table("Citas").select("*").eq("idDoctor", idPaciente).execute()
     
     if response.data:
         return jsonify(response.data), 200

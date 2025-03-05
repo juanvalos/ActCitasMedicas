@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e0e0e0; /* Fondo más oscuro */
+    background-color: #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@ body {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra un poco más fuerte */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     width: 350px;
 }
 

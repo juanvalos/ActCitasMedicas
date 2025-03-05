@@ -10,6 +10,7 @@ import DoctorSelection from "./components/DoctorSelection";
 import DoctorMenu from "./components/DoctorMenu";
 import DoctorSelectionPat from "./components/DoctorSelectionPat";
 import PatAgendarCita from "./components/PatAgendarCita";
+import ConsultasPat from "./components/consultasPat";
 
 function App() {
     return (
@@ -29,6 +30,8 @@ function App() {
                     <Route path="/doctor/selectionPat" element = {<DoctorSelectionPat />} />
 
                     <Route path="/schedule-appointment" element = {<PatAgendarCita />} />
+
+                    <Route path="/patient/appointments" element = {<ConsultasPat />} />
 
                 </Routes>
             </DoctorProvider>

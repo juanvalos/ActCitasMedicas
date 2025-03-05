@@ -16,7 +16,6 @@ const PatientSelection = () => {
     }, []);
 
     const handlePatientClick = (id) => {
-        console.log("Seleccionado patientId:", id); // ✅ Verifica en consola
         setPatientId(id);
         navigate("/patient/menu");
     };
