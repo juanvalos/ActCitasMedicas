@@ -36,7 +36,9 @@ const ConsultasPat = () => {
                     appointments.map((appointment) => (
                         <div key={appointment.id} className="appointment-card">
                             <h2>Motivo: {appointment.motivoConsulta}</h2>
-                            <p><strong>Fecha:</strong> {new Date(appointment.fecha).toLocaleString()}</p>
+                            <p>
+                                <strong>Fecha:</strong> {new Date(appointment.fecha).toLocaleString()}
+                            </p>
                             <p>
                                 <strong>Estado:</strong> 
                                 <span className={appointment.estado ? "confirmed" : "pending"}>

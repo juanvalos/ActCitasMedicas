@@ -12,6 +12,7 @@ import DoctorSelectionPat from "./components/DoctorSelectionPat";
 import PatAgendarCita from "./components/PatAgendarCita";
 import ConsultasPat from "./components/consultasPat";
 import GestionarCitas from "./components/GestionarCitas";
+import ScheduledAppointments from "./components/ScheduledAppointments";
 
 function App() {
     return (
@@ -35,6 +36,8 @@ function App() {
                     <Route path="/patient/appointments" element = {<ConsultasPat />} />
 
                     <Route path="manage-appointments" element = {<GestionarCitas />} />
+                    
+                    <Route path="/doctor/scheduled" element={<ScheduledAppointments />} />
 
                 </Routes>
             </DoctorProvider>
